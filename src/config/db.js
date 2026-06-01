@@ -7,7 +7,7 @@ const { Pool } = pg;
 
 const pool = new Pool({
     user: process.env.DB_USER || 'postgres',
-    password: '1409003', 
+    password:  process.env.DB_PASSWORD,
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
     database: process.env.DB_NAME || 'postgres'
@@ -15,4 +15,4 @@ const pool = new Pool({
 
 export const query = (text, params) => pool.query(text, params);
 
-export default pool
+export default pool     
